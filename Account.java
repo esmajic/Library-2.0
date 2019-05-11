@@ -1,8 +1,3 @@
-<<<<<<< HEAD:Account.java
-=======
-
->>>>>>> 48d0918e99cca77fad777398c4023b12a0e843c0:Accounts.java
-
 
 public class Account {
 

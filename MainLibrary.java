@@ -1,8 +1,11 @@
 
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class MainLibrary {
 
@@ -120,23 +123,41 @@ public class MainLibrary {
 				System.out.println();
 
 			} else if (option == 4) {
-
+				try {
 				System.out.println("\nReturning a book...  ");
 				System.out.println("Enter book number: ");
 				bookNumber = input.nextInt();
 				System.out.println("Enter account number: ");
 				int accountNumber = input.nextInt();
 				input.nextLine();
-				System.out.println("Enter date (dd-MM-yyyy):");
-				String date = input.nextLine();
-				System.out.println();
+				System.out.println("Enter date when book is borrowed (dd-MM-yyyy): ");
+				String dateBookBorrowed = input.nextLine();
+				System.out.println("Enter present date (dd-MM-yyyy):");
+				String dateBookReturned = input.nextLine();
+				
+				SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+				
+					Date newDate1 = dateFormat.parse(dateBookBorrowed);
+					Date newDate2 = dateFormat.parse(dateBookReturned);
+									
+				
+				DateDifference.getDateDiff(newDate1, newDate2, TimeUnit.DAYS);
 
 				ReturningBooks returnBook = new ReturningBooks(bookNumber, accountNumber);
 
 				returnBook.returnBook(borrowed, numbers, bookNumbers, accountNumber, bookNumber);
 
-				BorrowingBooks ret = new BorrowingBooks(bookNumber, accountNumber, date);
+				BorrowingBooks ret = new BorrowingBooks(bookNumber, accountNumber, dateBookBorrowed);
 				borrowed.remove(ret);
+				
+				if (DateDifference.getDateDiff(newDate1, newDate2, TimeUnit.DAYS) > 30) 
+					System.out.println("\nBook was held more than 30 days. Please, pay penalty fee.");
+				System.out.println();
+				
+				} catch (ParseException e) {
+
+					System.out.println("There is an error encountered during execution of code.");
+				}
 
 			} else if (option == 5) {
 				System.out.println("List of registered accounts:");
