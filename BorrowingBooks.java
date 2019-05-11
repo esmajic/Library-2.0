@@ -26,7 +26,7 @@ public class BorrowingBooks {
 		return date;
 	}
 
-	public void borrowBooks(ArrayList<Accounts> accounts, ArrayList<Books> books, int accountNumber, int bookNumber,
+	public void borrowBooks(ArrayList<Account> accounts, ArrayList<Book> books, int accountNumber, int bookNumber,
 			String date) throws Exception {
 		if (isAccountNumber(accountNumber, accounts)) {
 			System.out.println("\nAccount does not exist in our accounts data base! Please, try again.");
@@ -50,7 +50,7 @@ public class BorrowingBooks {
 
 	}
 
-	public boolean isBookNoUnique(int bookNumber, ArrayList<Books> books) {
+	public boolean isBookNoUnique(int bookNumber, ArrayList<Book> books) {
 		for (int i = 0; i < books.size(); i++) {
 			while (books.get(i).getBookNumber() == bookNumber) {
 				return true;
@@ -59,7 +59,7 @@ public class BorrowingBooks {
 		return false;
 	}
 
-	public static boolean isBookNumber(int bookNumber, ArrayList<Books> books) {
+	public static boolean isBookNumber(int bookNumber, ArrayList<Book> books) {
 		for (int i = 0; i < books.size(); i++) {
 			while (books.get(i).getBookNumber() == bookNumber) {
 				return false;
@@ -68,7 +68,7 @@ public class BorrowingBooks {
 		return true;
 	}
 
-	public static int getBookNumberIndex(int bookNumber, ArrayList<Books> books) {
+	public static int getBookNumberIndex(int bookNumber, ArrayList<Book> books) {
 		int i;
 		for (i = 0; i < books.size(); i++) {
 			if (books.get(i).getBookNumber() == bookNumber) {
@@ -78,7 +78,7 @@ public class BorrowingBooks {
 		return i;
 	}
 
-	public static void listAllBooks(ArrayList<Books> books) {
+	public static void listAllBooks(ArrayList<Book> books) {
 		if (books.size() > 0) {
 			for (int i = 0; i < books.size(); i++) {
 				System.out.println("* " + books.get(i).getBookNumber() + ", " + books.get(i).getBookTitle() + ", "
@@ -90,7 +90,7 @@ public class BorrowingBooks {
 
 	}
 
-	public static boolean isBookAvailable(int bookNumber, ArrayList<Books> books) {
+	public static boolean isBookAvailable(int bookNumber, ArrayList<Book> books) {
 		while (books.get(getBookNumberIndex(bookNumber, books)).isBookStatus()) {
 			return false;
 		}
@@ -98,7 +98,7 @@ public class BorrowingBooks {
 
 	}
 
-	public boolean isAccountNoUnique(int accountNumber, ArrayList<Accounts> accounts) {
+	public boolean isAccountNoUnique(int accountNumber, ArrayList<Account> accounts) {
 		for (int i = 0; i < accounts.size(); i++) {
 			while (accounts.get(i).getAccountNumber() == accountNumber) {
 				return true;
@@ -107,7 +107,7 @@ public class BorrowingBooks {
 		return false;
 	}
 
-	public static boolean isAccountNumber(int accountNumber, ArrayList<Accounts> accounts) {
+	public static boolean isAccountNumber(int accountNumber, ArrayList<Account> accounts) {
 		for (int i = 0; i < accounts.size(); i++) {
 			if (accounts.get(i).getAccountNumber() == accountNumber) {
 				return false;
@@ -116,7 +116,7 @@ public class BorrowingBooks {
 		return true;
 	}
 
-	public static int getAccountNumberIndex(int accountNumber, ArrayList<Accounts> accounts) {
+	public static int getAccountNumberIndex(int accountNumber, ArrayList<Account> accounts) {
 		int i;
 		for (i = 0; i < accounts.size(); i++) {
 			if (accounts.get(i).getAccountNumber() == accountNumber) {
@@ -126,7 +126,7 @@ public class BorrowingBooks {
 		return i;
 	}
 
-	public static void listAllAccounts(ArrayList<Accounts> accounts) {
+	public static void listAllAccounts(ArrayList<Account> accounts) {
 		if (accounts.size() > 0) {
 			for (int i = 0; i < accounts.size(); i++) {
 				System.out.println("* " + accounts.get(i).getAccountNumber() + ", " + accounts.get(i).getName() + ", "
@@ -150,7 +150,7 @@ public class BorrowingBooks {
 
 	}
 
-	public static boolean booksWithSameNumber(int bookNumber, ArrayList<Books> books) {
+	public static boolean booksWithSameNumber(int bookNumber, ArrayList<Book> books) {
 		for (int i = 0; i < books.size(); i++) {
 			if (books.get(i).getBookNumber() == bookNumber) {
 				return true;
@@ -159,7 +159,7 @@ public class BorrowingBooks {
 		return false;
 	}
 
-	public static boolean accountsWithSameNumber(int accountNumber, ArrayList<Accounts> accounts) {
+	public static boolean accountsWithSameNumber(int accountNumber, ArrayList<Account> accounts) {
 		for (int i = 0; i < accounts.size(); i++) {
 			if (accounts.get(i).getAccountNumber() == accountNumber) {
 				return true;

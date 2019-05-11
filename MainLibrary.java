@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class MainLibrary {
 
-	public static ArrayList<Accounts> numbers = new ArrayList<>();
-	public static ArrayList<Books> bookNumbers = new ArrayList<>();
+	public static ArrayList<Account> numbers = new ArrayList<>();
+	public static ArrayList<Book> bookNumbers = new ArrayList<>();
 	public static ArrayList<BorrowingBooks> borrowed = new ArrayList<>();
 
 	public static void main(String[] args) throws Exception {
@@ -54,7 +54,7 @@ public class MainLibrary {
 
 						amountBorrowedBooks = input.nextInt();
 
-						Accounts accounts = new Accounts(accountNo, name, amountBorrowedBooks);
+						Account accounts = new Account(accountNo, name, amountBorrowedBooks);
 
 						accounts.setAmountOfBorrowedBooks(amountBorrowedBooks);
 
@@ -86,7 +86,7 @@ public class MainLibrary {
 						System.out.println("Is book available in library?:  ");
 						bookStatus = input.nextBoolean();
 
-						Books books = new Books(bookNumber, bookTitle, bookStatus);
+						Book books = new Book(bookNumber, bookTitle, bookStatus);
 
 						books.setBookStatus(bookStatus);
 						bookNumbers.add(books);

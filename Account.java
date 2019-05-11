@@ -1,12 +1,12 @@
-package library2zero;
 
-public class Accounts {
+
+public class Account {
 
 	private int accountNumber;
 	private String name;
 	private int amountOfBorrowedBooks;
 
-	Accounts(int accountNumber, String name, int amountOfBorrowedBooks) {
+	Account(int accountNumber, String name, int amountOfBorrowedBooks) {
 		this.accountNumber = accountNumber;
 		this.name = name;
 		this.amountOfBorrowedBooks = amountOfBorrowedBooks;
